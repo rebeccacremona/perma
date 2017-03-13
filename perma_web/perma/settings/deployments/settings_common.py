@@ -303,12 +303,15 @@ BANNED_IP_RANGES = [
 ]
 
 # Trusted Proxies (opt in)
-# If true, IP-examining functions should reject requests from anyone except trusted proxies
+# If true, wsgi.py will reject requests from anyone except trusted proxies
 LIMIT_TO_TRUSTED_PROXY = False
+# Trusted proxies should be a list of reverse proxies in the chain, where each proxy is a list of whitelisted IP ranges
+# for that proxy. For example:
+# TRUSTED_PROXIES = [['<cloudflare range>', '<cloudflare range>'], ['<nginx server ip>']]
 TRUSTED_PROXIES = []
-# If LIMIT_TO_TRUSTED_PROXY is True, this is the only http header we will use to
-# determine/test/validate a client's IP address.
-TRUSTED_PROXY_HEADER = ''
+
+# Http header we will use to determine/test/validate a client's IP address.
+CLIENT_IP_HEADER = 'REMOTE_ADDR'
 
 # Celery settings
 BROKER_URL = 'amqp://guest:guest@localhost:5672/'
