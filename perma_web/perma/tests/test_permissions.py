@@ -107,7 +107,7 @@ class PermissionsTestCase(PermaTestCase):
 
                 # try with valid users
                 for user in view['allowed']:
-                    self.log_in_user(user)
+                    self.log_in_user(user, force=False)
                     resp = self.client.get(url)
                     if success_test:
                         success_test(resp)
@@ -117,7 +117,7 @@ class PermissionsTestCase(PermaTestCase):
 
                 # try with invalid users
                 for user in view.get('disallowed', all_users - view['allowed']):
-                    self.log_in_user(user)
+                    self.log_in_user(user, force=False)
                     resp = self.client.get(url)
                     self.assertEqual(resp.status_code, 403,
                                          "View %s returned status %s for user %s; expected %s." % (view_name, resp.status_code, user, success_status))

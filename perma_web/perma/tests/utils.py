@@ -32,14 +32,17 @@ class PermaTestCase(TestCase):
 
     #     return super(PermaTestCase, self).tearDown()
 
-    def log_in_user(self, user, password='pass'):
+    def log_in_user(self, user, password='pass', force=True):
         self.client.logout()
         if hasattr(user, 'email'):
             self.logged_in_user = user
             user = user.email
         else:
             self.logged_in_user = LinkUser.objects.get(email=user)
-        self.client.post(reverse('user_management_limited_login'), {'username': user, 'password': password})
+        if force:
+            self.client.force_login(self.logged_in_user)
+        else:
+            self.client.post(reverse('user_management_limited_login'), {'username': user, 'password': password})
 
     def do_request(self,
                    view_name,
@@ -50,12 +53,16 @@ class PermaTestCase(TestCase):
                    request_args=[],
                    request_kwargs={},
                    require_status_code=200,
-                   user=None):
+                   user=None,
+                   force=True):
         """
             Given view name, get url and fetch url contents.
         """
         if user:
-            self.log_in_user(user)
+            if not force:
+                self.log_in_user(user, force=False)
+            else:
+                self.log_in_user(user)
         url = reverse(view_name, *reverse_args, **reverse_kwargs)
         if query_params:
             url += '?' + urlencode(query_params)
