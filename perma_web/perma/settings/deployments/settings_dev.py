@@ -62,3 +62,9 @@ except ImportError:
 # Our Sorl thumbnail stuff. In prod we use Redis, we'll just use
 # the local uncached DB here in dev.
 THUMBNAIL_KVSTORE = 'sorl.thumbnail.kvstores.cached_db_kvstore.KVStore'
+
+# Fast password hashing for testing performance;
+# here so that fixtures can be reused
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.MD5PasswordHasher',
+]

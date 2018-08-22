@@ -37,9 +37,9 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 # Note: this is recommended by the Django docs but
 # currently conflicts with some of our tests
-# PASSWORD_HASHERS = (
-#     'django.contrib.auth.hashers.MD5PasswordHasher',
-# )
+PASSWORD_HASHERS = (
+    'django.contrib.auth.hashers.MD5PasswordHasher',
+)
 
 # Using the Django SQLite in-memory DB for testing is faster,
 # but threaded tasks won't have access in Django <=1.7

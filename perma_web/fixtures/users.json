@@ -167,7 +167,7 @@
     "model": "perma.linkuser",
     "pk": 1,
     "fields": {
-      "password": "pbkdf2_sha256$30000$Dv7jdRxtSyqc$8LoTP7uO5dPsNGIkdlAnTFKbEgkFeEiybEudRxuVIj0=",
+      "password": "md5$RCOVOS2ZaWjS$a305f19c93ed11e4c6b9e5f4056ea49b",
       "last_login": "2017-09-28T19:32:28Z",
       "email": "test_admin_user@example.com",
       "registrar": null,
@@ -191,7 +191,7 @@
     "model": "perma.linkuser",
     "pk": 2,
     "fields": {
-      "password": "pbkdf2_sha256$10000$56cl09Msiau4$IoOlZ+P/I3MJJG+ZxYtH9mb6c+B+VQELqwWyb3ubdWE=",
+      "password": "md5$RCOVOS2ZaWjS$a305f19c93ed11e4c6b9e5f4056ea49b",
       "last_login": "2013-07-23T18:56:14Z",
       "email": "test_registrar_user@example.com",
       "registrar": 1,
@@ -215,7 +215,7 @@
     "model": "perma.linkuser",
     "pk": 3,
     "fields": {
-      "password": "pbkdf2_sha256$10000$gtsGKyK7FARJ$MdCKh7SZhd6uDz1enPxcNAn3fM0L7o5OAKd1/VjXiqk=",
+      "password": "md5$RCOVOS2ZaWjS$a305f19c93ed11e4c6b9e5f4056ea49b",
       "last_login": "2013-07-23T18:38:27Z",
       "email": "test_org_user@example.com",
       "registrar": null,
@@ -241,7 +241,7 @@
     "model": "perma.linkuser",
     "pk": 4,
     "fields": {
-      "password": "pbkdf2_sha256$10000$gtsGKyK7FARJ$MdCKh7SZhd6uDz1enPxcNAn3fM0L7o5OAKd1/VjXiqk=",
+      "password": "md5$RCOVOS2ZaWjS$a305f19c93ed11e4c6b9e5f4056ea49b",
       "last_login": "2013-07-23T18:55:25Z",
       "email": "test_user@example.com",
       "registrar": null,
@@ -265,7 +265,7 @@
     "model": "perma.linkuser",
     "pk": 5,
     "fields": {
-      "password": "pbkdf2_sha256$10000$gtsGKyK7FARJ$MdCKh7SZhd6uDz1enPxcNAn3fM0L7o5OAKd1/VjXiqk=",
+      "password": "md5$RCOVOS2ZaWjS$a305f19c93ed11e4c6b9e5f4056ea49b",
       "last_login": "2013-07-23T18:38:27Z",
       "email": "test_org_rando_user@example.com",
       "registrar": null,
@@ -291,7 +291,7 @@
     "model": "perma.linkuser",
     "pk": 6,
     "fields": {
-      "password": "pbkdf2_sha256$10000$gtsGKyK7FARJ$MdCKh7SZhd6uDz1enPxcNAn3fM0L7o5OAKd1/VjXiqk=",
+      "password": "md5$RCOVOS2ZaWjS$a305f19c93ed11e4c6b9e5f4056ea49b",
       "last_login": "2013-07-23T18:38:27Z",
       "email": "test_another_org_user@example.com",
       "registrar": null,
@@ -317,7 +317,7 @@
     "model": "perma.linkuser",
     "pk": 7,
     "fields": {
-      "password": "pbkdf2_sha256$10000$gtsGKyK7FARJ$MdCKh7SZhd6uDz1enPxcNAn3fM0L7o5OAKd1/VjXiqk=",
+      "password": "md5$RCOVOS2ZaWjS$a305f19c93ed11e4c6b9e5f4056ea49b",
       "last_login": "2013-07-23T18:38:27Z",
       "email": "test_another_library_org_user@example.com",
       "registrar": null,
@@ -344,7 +344,7 @@
     "model": "perma.linkuser",
     "pk": 8,
     "fields": {
-      "password": "pbkdf2_sha256$10000$gtsGKyK7FARJ$MdCKh7SZhd6uDz1enPxcNAn3fM0L7o5OAKd1/VjXiqk=",
+      "password": "md5$RCOVOS2ZaWjS$a305f19c93ed11e4c6b9e5f4056ea49b",
       "last_login": "2013-07-23T18:38:27Z",
       "email": "test_requested_registrar_account@example.com",
       "registrar": null,
@@ -368,7 +368,7 @@
     "model": "perma.linkuser",
     "pk": 9,
     "fields": {
-      "password": "pbkdf2_sha256$10000$56cl09Msiau4$IoOlZ+P/I3MJJG+ZxYtH9mb6c+B+VQELqwWyb3ubdWE=",
+      "password": "md5$RCOVOS2ZaWjS$a305f19c93ed11e4c6b9e5f4056ea49b",
       "last_login": "2013-07-23T18:56:14Z",
       "email": "another_library_user@example.com",
       "registrar": 2,
@@ -392,7 +392,7 @@
     "model": "perma.linkuser",
     "pk": 10,
     "fields": {
-      "password": "pbkdf2_sha256$10000$gtsGKyK7FARJ$MdCKh7SZhd6uDz1enPxcNAn3fM0L7o5OAKd1/VjXiqk=",
+      "password": "md5$RCOVOS2ZaWjS$a305f19c93ed11e4c6b9e5f4056ea49b",
       "last_login": "2013-07-23T18:38:27Z",
       "email": "multi_registrar_org_user@example.com",
       "registrar": null,
@@ -421,7 +421,7 @@
     "model": "perma.linkuser",
     "pk": 11,
     "fields": {
-      "password": "pbkdf2_sha256$10000$gtsGKyK7FARJ$MdCKh7SZhd6uDz1enPxcNAn3fM0L7o5OAKd1/VjXiqk=",
+      "password": "md5$RCOVOS2ZaWjS$a305f19c93ed11e4c6b9e5f4056ea49b",
       "last_login": "2016-10-17T18:38:27Z",
       "email": "test_yet_another_library_org_user@example.com",
       "registrar": null,
@@ -447,7 +447,7 @@
     "model": "perma.linkuser",
     "pk": 12,
     "fields": {
-      "password": "pbkdf2_sha256$10000$56cl09Msiau4$IoOlZ+P/I3MJJG+ZxYtH9mb6c+B+VQELqwWyb3ubdWE=",
+      "password": "md5$RCOVOS2ZaWjS$a305f19c93ed11e4c6b9e5f4056ea49b",
       "last_login": "2016-10-18T18:56:14Z",
       "email": "deactivated_registrar_user@example.com",
       "registrar": 2,
@@ -471,7 +471,7 @@
     "model": "perma.linkuser",
     "pk": 13,
     "fields": {
-      "password": "pbkdf2_sha256$10000$56cl09Msiau4$IoOlZ+P/I3MJJG+ZxYtH9mb6c+B+VQELqwWyb3ubdWE=",
+      "password": "md5$RCOVOS2ZaWjS$a305f19c93ed11e4c6b9e5f4056ea49b",
       "last_login": "2016-10-18T18:56:14Z",
       "email": "unactivated_registrar_user@example.com",
       "registrar": 2,
@@ -495,7 +495,7 @@
     "model": "perma.linkuser",
     "pk": 14,
     "fields": {
-      "password": "pbkdf2_sha256$10000$56cl09Msiau4$IoOlZ+P/I3MJJG+ZxYtH9mb6c+B+VQELqwWyb3ubdWE=",
+      "password": "md5$RCOVOS2ZaWjS$a305f19c93ed11e4c6b9e5f4056ea49b",
       "last_login": "2016-10-18T18:56:14Z",
       "email": "unactivated_court_user@example.com",
       "registrar": null,
@@ -519,7 +519,7 @@
     "model": "perma.linkuser",
     "pk": 15,
     "fields": {
-      "password": "pbkdf2_sha256$10000$56cl09Msiau4$IoOlZ+P/I3MJJG+ZxYtH9mb6c+B+VQELqwWyb3ubdWE=",
+      "password": "md5$RCOVOS2ZaWjS$a305f19c93ed11e4c6b9e5f4056ea49b",
       "last_login": "2016-10-18T18:56:14Z",
       "email": "unactivated_journal_user@example.com",
       "registrar": null,
@@ -543,7 +543,7 @@
     "model": "perma.linkuser",
     "pk": 16,
     "fields": {
-      "password": "pbkdf2_sha256$10000$56cl09Msiau4$IoOlZ+P/I3MJJG+ZxYtH9mb6c+B+VQELqwWyb3ubdWE=",
+      "password": "md5$RCOVOS2ZaWjS$a305f19c93ed11e4c6b9e5f4056ea49b",
       "last_login": "2016-10-18T18:56:14Z",
       "email": "unactivated_faculty_user@example.com",
       "registrar": null,
@@ -567,7 +567,7 @@
     "model": "perma.linkuser",
     "pk": 17,
     "fields": {
-      "password": "pbkdf2_sha256$30000$hSV3yzdacQEo$glE2Q5YUR3jYpyfvNLHi/r31XJs0oObqiNZXjhXFAps=",
+      "password": "md5$RCOVOS2ZaWjS$a305f19c93ed11e4c6b9e5f4056ea49b",
       "last_login": null,
       "email": "registrar_user@firm.com",
       "registrar": 4,
@@ -591,7 +591,7 @@
     "model": "perma.linkuser",
     "pk": 18,
     "fields": {
-      "password": "pbkdf2_sha256$30000$QP5GYS5jwwAH$UhRTdy8rvIMQEB0qArvC8OqGil1MYRrg/Jv79Nfn2ro=",
+      "password": "md5$RCOVOS2ZaWjS$a305f19c93ed11e4c6b9e5f4056ea49b",
       "last_login": null,
       "email": "case_one_lawyer@firm.com",
       "registrar": null,
