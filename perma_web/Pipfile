@@ -4,7 +4,6 @@ url = "https://pypi.org/simple"
 name = "pypi"
 
 [packages]
-
 # general
 celery = "==3.1.25"                         # task queue
 Django = "==1.11.13"
@@ -15,37 +14,25 @@ pytz = "==2018.3"                           # timezone helper
 requests = {version = "==2.18.4", extras = ["security"]}
 tqdm = "==4.11.2"                           # progress bar in dev fab tasks
 Werkzeug = "==0.11.1"
-
-
 # databases
 mysqlclient = "==1.3.12"
 django-redis = "==4.4.3"                    # use redis as django's cache backend
 redis = "==2.10.5"                          # Needed to bind with Redis.
 sqlparse = "==0.2.4"                        # for data migrations
-
-
 # models
 django-model-utils = "==2.6.1"               # soft deletion and other nice things
 django-mptt = "==0.8.7"                      # trees (like our folder tree)
 django-simple-history = "==1.9.0"            # track changes to certain models
 django-taggit = "==0.22.2"                   # add tags to model instances
-
-
 # templates
 django-settings-context-processor = "==0.2"  # make settings available in templates
-
-
 # assets
 django-webpack-loader = "==0.5.0"           # frontend assets building
 Pillow = "==3.3.2"                          # Used by the Django admin for ImageField display
 whitenoise = "==3.2.2"                      # serve static assets
-
-
 # thumbnails (carousel? anything else?)
 sorl-thumbnail = "==12.3"
 Wand = "==0.4.4"
-
-
 # capture/playback related stuff
 LinkHeader = "==0.4.3"                      # memento headers for single-link pages
 pyquery = "==1.2.17"                        # extract data from HTML in capture task
@@ -56,35 +43,24 @@ tempdir = "==0.6"                           # create temp dirs to be deleted at 
 ua-parser = "==0.7.1"                       # user agent parsing to detect Safari browser for playbacks
 warcio = "==1.3.3"                          # helps us write metadata and inspect our WARCs
 warcprox = "==2.4b2"
-
-
 # alternate storages
 django-storages = "==1.5.2"
 "boto3" = "==1.4.4"                         # required for django-storages to use s3 backend
-
-
 # api
 djangorestframework = "==3.6.2"             # toolkit for building apis
 django-filter = "==1.0.2"                   # searching
-
-
 # link preservation
 internetarchive = "==1.0.10"                # upload warcs to internet archive
-
-
 # perma payments
 PyNaCl = "==1.1.2"                          # encryption. why pinned?
-
-
 # integration with campaign monitor
 createsend-python = {git = "git://github.com/rebeccacremona/createsend-python.git", ref = "7cd8be21f89fa7bb61dafb31da9ad4a64058bf5b", editable = true}
-
 # heroku
 dj_database_url = "==0.3.0"
 gevent = ">1.3"
 gunicorn = ">19.7"
 newrelic = "==2.66.0.49"
-
+pytest-django-ordering = "*"
 
 [dev-packages]
 "beautifulsoup4" = "*"                      # parses html of responses
@@ -96,10 +72,10 @@ hypothesis = "*"                            # run tests with lots of generated i
 mock = "*"                                  # safe monkey patching
 pytest-cov = "*"                            # integrate coverage w/ pytest
 pytest-django = "*"                         # tools for django in pytest
+pytest-django-ordering = "*"                # runs transaction-wrapped tests before table truncating tests
 pytest-xdist = "*"                          # run tests in parallel
 pytest = "*"                                # test runner
 sauceclient = "*"                           # run functional tests in many browsers online
-
 
 [requires]
 python_version = "3.5"
