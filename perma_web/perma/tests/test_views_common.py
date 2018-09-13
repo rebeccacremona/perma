@@ -74,7 +74,7 @@ class CommonViewsTestCase(PermaTestCase):
 
     def test_deleted(self):
         response = self.get('single_permalink', reverse_kwargs={'kwargs': {'guid': 'ABCD-0003'}}, require_status_code=410)
-        self.assertIn(b"This record has been deleted.", response.content)
+        self.assertIn(b"This record has been removed.", response.content)
 
     def test_misformatted_nonexistent_links_404(self):
         response = self.client.get(reverse('single_permalink', kwargs={'guid': 'JJ99--JJJJ'}))
