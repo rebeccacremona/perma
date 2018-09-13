@@ -42,12 +42,13 @@ def update_link_count(sender, instance, **kwargs):
             instance.organization.registrar.save()
 
     except sender.DoesNotExist:
-        # new link. let's add it to the user's sum
-        instance.created_by.link_count += 1
-        instance.created_by.save()
+        if not instance.user_deleted:
+            # new link. let's add it to the user's sum
+            instance.created_by.link_count += 1
+            instance.created_by.save()
 
-        if instance.organization:
-            instance.organization.link_count += 1
-            instance.organization.save()
-            instance.organization.registrar.link_count += 1
-            instance.organization.registrar.save()
+            if instance.organization:
+                instance.organization.link_count += 1
+                instance.organization.save()
+                instance.organization.registrar.link_count += 1
+                instance.organization.registrar.save()
