@@ -23,7 +23,6 @@ class LinkCountCachingTestCase(PermaTestCase):
         self.assertEqual(link_count + 1, self.regular_user.link_count)
 
         link.safe_delete()
-        link.save()
 
         self.regular_user.refresh_from_db()
         self.assertEqual(link_count, self.regular_user.link_count)
@@ -42,7 +41,6 @@ class LinkCountCachingTestCase(PermaTestCase):
         self.assertEqual(link_count + 1, org_to_which_user_belongs.link_count)
 
         link.safe_delete()
-        link.save()
 
         org_to_which_user_belongs.refresh_from_db()
         self.assertEqual(link_count, org_to_which_user_belongs.link_count)
@@ -61,7 +59,6 @@ class LinkCountCachingTestCase(PermaTestCase):
         self.assertEqual(link_count + 1, registrar_to_which_user_belongs.link_count)
 
         link.safe_delete()
-        link.save()
 
         registrar_to_which_user_belongs.refresh_from_db()
         self.assertEqual(link_count, registrar_to_which_user_belongs.link_count)

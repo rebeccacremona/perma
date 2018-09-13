@@ -419,7 +419,6 @@ def manage_single_organization_delete(request, org_id):
             raise Http404
 
         target_org.safe_delete()
-        target_org.save()
 
         return HttpResponseRedirect(reverse('user_management_manage_organization'))
 

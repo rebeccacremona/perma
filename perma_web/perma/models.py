@@ -54,7 +54,7 @@ from .utils import (tz_datetime, protocol,
     prep_for_perma_payments, process_perma_payments_transmission,
     paid_through_date_from_post,
     first_day_of_next_month, today_next_year, preserve_perma_warc,
-    write_resource_record_from_asset)
+    write_resource_record_from_asset, run_task)
 
 
 logger = logging.getLogger(__name__)
@@ -148,6 +148,8 @@ class DeletableModel(models.Model):
     def safe_delete(self):
         self.user_deleted = True
         self.user_deleted_timestamp = timezone.now()
+        self.save()
+
 
 # django-taggit assumes the model being tagged has an integer primary key.
 # per http://django-taggit.readthedocs.io/en/latest/custom_tagging.html,
@@ -1162,12 +1164,59 @@ class Link(DeletableModel):
             write_resource_record_from_asset(uploaded_file.file.read(), warc_url, mime_type, warc)
         capture.save()
 
+
+    def safe_delete(self):
+        """
+        Delete a link and its metadata without obliterating
+        the DB rows necessary to serve up a "deleted" page.
+
+        DOES NOT AFFECT THE WARC FILE
+        """
+
+        # Delete related captures and cdxlines
+        self.delete_related()
+
+        # Overwrite metadata fields in the capture job with empty strings
+        try:
+            self.capture_job.submitted_url = ''
+            self.capture_job.message = ''
+            self.capture_job.save()
+        except CaptureJob.RelatedObjectDoesNotExist:
+            pass
+
+        # Handle own metadata fields
+        super(Link, self).safe_delete()
+        self.submitted_url = 'removed.from.perma.cc'  # can't be null/blank or invalid
+        self.submitted_title = 'removed from perma.cc'  # can't be null/blank
+        self.submitted_description = ''
+        self.notes = ''
+        self.warc_size = None
+        self.is_private = True
+        self.private_reason = 'takedown'
+
+        # save twice so model_utils tracker is zeroed out
+        self.save()
+        self.save()
+
+        # Delete django simple_history records
+        self.history.all().delete()
+
+        # Wipe the warc out of our redis cache
+        self.clear_cache()
+
+        # Remove record from internet archive, if it's there
+        # import here to avoid circular import problems
+        from .tasks import delete_from_internet_archive  # noqa
+        run_task(delete_from_internet_archive.s(link_guid=self.guid))
+
+
     def safe_delete_warc(self):
         old_name = self.warc_storage_file()
         if default_storage.exists(old_name):
             new_name = old_name.replace('.warc.gz', '_replaced_%d.warc.gz' % timezone.now().timestamp())
             default_storage.store_file(default_storage.open(old_name), new_name)
             default_storage.delete(old_name)
+
 
     def replay_url(self, url, wsgi_application=None, follow_redirects=True):
         """

@@ -1302,10 +1302,12 @@ def update_stats():
 @shared_task(bind=True)
 def delete_from_internet_archive(self, link_guid):
     if not settings.UPLOAD_TO_INTERNET_ARCHIVE:
+        logger.warning("Skipping attempted deletion of {} from Internet Archive".format(link_guid))
         return
+    logger.warning("Attempting to delete {} from Internet Archive".format(link_guid))
 
     identifier = settings.INTERNET_ARCHIVE_IDENTIFIER_PREFIX + link_guid
-    link = Link.objects.get(guid=link_guid)
+    link = Link.objects.all_with_deleted().get(guid=link_guid)
     item = internetarchive.get_item(identifier)
 
     metadata_identifiers = [
@@ -1315,6 +1317,7 @@ def delete_from_internet_archive(self, link_guid):
     ]
 
     if not item.exists:
+        logger.warning("{} not found in Internet Archive".format(link_guid))
         return False
 
     for f in item.files:
@@ -1354,6 +1357,8 @@ def delete_from_internet_archive(self, link_guid):
 
     link.internet_archive_upload_status = 'deleted'
     link.save()
+    logger.warning("successfully deleted {} from Internet Archive".format(link_guid))
+
 
 @shared_task()
 def upload_all_to_internet_archive():

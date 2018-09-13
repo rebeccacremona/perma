@@ -497,9 +497,7 @@ class AuthenticatedLinkDetailView(BaseView):
         if not request.user.can_delete(link):
             raise PermissionDenied()
 
-        link.delete_related()  # delete related captures and cdxlines
         link.safe_delete()
-        link.save()
 
         return Response(status=status.HTTP_204_NO_CONTENT)
 

@@ -170,6 +170,17 @@ class LinkAdmin(SimpleHistoryAdmin):
     def tag_list(self, obj):
         return u", ".join(o.name for o in obj.tags.all())
 
+    def get_actions(self, request):
+        # disallow deletion of many links at once, because of
+        # https://docs.djangoproject.com/en/dev/topics/db/queries/#deleting-objects
+        actions = super(LinkAdmin, self).get_actions(request)
+        if 'delete_selected' in actions:
+            del actions['delete_selected']
+        return actions
+
+    def delete_model(self, request, obj):
+        obj.safe_delete()
+
 
 class FolderAdmin(MPTTModelAdmin):
     list_display = ['name', 'owned_by', 'organization']
