@@ -1181,7 +1181,7 @@ class Link(DeletableModel):
             self.capture_job.submitted_url = ''
             self.capture_job.message = ''
             self.capture_job.save()
-        except CaptureJob.RelatedObjectDoesNotExist:
+        except CaptureJob.DoesNotExist:
             pass
 
         # Handle own metadata fields
