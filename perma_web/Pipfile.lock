@@ -88,18 +88,18 @@
         },
         "boto3": {
             "hashes": [
-                "sha256:1cea7879ac0905e598f8df9b0f1bd40405d571f06b206beb3215aa3b1034f5a2",
-                "sha256:86d82f24ef1193ae508ff8ec90d9e8b4b4c23578d10520682befa313175535ac"
+                "sha256:90c5634fcd9c658f8d1554885f33d8c472a9adcde5f29d92ef91dcd12bf2e646",
+                "sha256:f45a88dc66e935f03dcc7f41b7702fddfdd9d8ab1f29a9668687c3abba544e0e"
             ],
             "index": "pypi",
-            "version": "==1.9.65"
+            "version": "==1.9.71"
         },
         "botocore": {
             "hashes": [
-                "sha256:a9e6b55fcb30a01ad5309912286f80c516aed6123b9ac5c8bfb0aeccd943650b",
-                "sha256:e969a68fc2bed981f3b6539cbb191f82b7034f95f04c664b06764446f22b9cee"
+                "sha256:d6fa29f28899892f77014c19afa40ec1b87ef1e57b15c7eac582e8d48eddf32d",
+                "sha256:e5bcea66a1ffad9b2e1ff2935a31455c76f689e00b924e9920cb012b177fbe35"
             ],
-            "version": "==1.12.65"
+            "version": "==1.12.71"
         },
         "brotlipy": {
             "hashes": [
@@ -369,9 +369,9 @@
         },
         "easyprocess": {
             "hashes": [
-                "sha256:94e241cadc9a46f55b5c06000df85618849602e7e1865b8de87576b90a22e61f"
+                "sha256:13adcbb2333819358798a8e10213c5774dd24fa75f3423a2d036a3778637b43d"
             ],
-            "version": "==0.2.3"
+            "version": "==0.2.5"
         },
         "fabric3": {
             "hashes": [
@@ -819,9 +819,9 @@
         },
         "urlcanon": {
             "hashes": [
-                "sha256:c693e376ded540219b920805f6689db0372839b0140751024ef67da43f82af23"
+                "sha256:a2a25d579b7b2e978379d929d52e4c8f7cb7657d58dde7e20ee8a8377da3ff0f"
             ],
-            "version": "==0.2"
+            "version": "==0.2.1"
         },
         "urllib3": {
             "hashes": [
