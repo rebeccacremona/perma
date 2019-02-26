@@ -126,7 +126,7 @@ Something like the following can be used to create a new user and new databases:
     $ mysql -u root -psomepasshere
     mysql> create database perma character set utf8; grant all on perma.* to perma@'localhost' identified by 'perma';
     mysql> create database perma_cdxline character set utf8; grant all on perma_cdxline.* to perma@'localhost' identified by 'perma';
-    mysql -u perma -p perma
+    mysql -u perma -pperma
     mysql> show databases;
 
 
