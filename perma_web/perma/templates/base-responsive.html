@@ -31,12 +31,14 @@
 
     <!--Python variables for use in Javascript -->
     {% include 'js_config.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     {% block header_scripts %}{% endblock %}
     {% block styles %}{% endblock %}
 
   </head>
   <body class="{% block bodyFlags %}{% endblock bodyFlags %}">
+    <div id="vue-app">
     {% block modals %}{% endblock modals %}
     <div id="after-modals">
       <a href="#main-skip-target" class="skip-link">Skip to main content</a>
@@ -116,6 +118,7 @@
           </div><!--/container-->
         </footer>
       {% endblock %}
+    </div>
     </div>
     {% render_bundle 'global' 'js' %}
     {% block scripts %}{% endblock %}

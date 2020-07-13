@@ -9,7 +9,6 @@
 {% endblock %}
 
 {% block mainContent %}
-
   <!-- regular link creation -->
   <div id="create-item-container" class="container cont-full-bleed">
     <div class="container cont-fixed">
@@ -41,7 +40,7 @@
             </button>
 
             {% if ENABLE_BATCH_LINKS %}
-            <p id="create-batch-links">or <a id="create-batch" data-toggle="modal" href="#batch-modal">create multiple links</a></p>
+              <create-batch-links></create-batch-links>
             {% endif %}
           </div>
 
@@ -116,14 +115,8 @@
   <div class="row">
     <div class="col-md-3 col-folders">
       {% if ENABLE_BATCH_LINKS %}
-      <div id="batch-list-container" class="_hide">
-        <div id="batch-list-toggle">
-          <a role="button" class="dropdown" data-toggle="collapse" href="#batch-history" aria-expanded="false" aria-controls="batch-history">
-            <h3>Link Batch History</h3>
-          </a>
-        </div>
-        <div id="batch-history" class="collapse">
-        </div>
+      <div>
+        <link-batch-history></link-batch-history>
       </div>
       {% endif %}
       <div class="panel-heading">
@@ -151,7 +144,6 @@
   </div>
 </div>
 <!-- / Your Perma Links -->
-
 {% endblock %}
 
 {% block scripts %}
@@ -174,6 +166,6 @@
 {% block modals %}
   {% include "archive/includes/upload_your_own.html" %}
   {% if ENABLE_BATCH_LINKS %}
-    {% include "archive/includes/link_batch_modal.html" %}
+    <link-batch-modal></link-batch-modal>
   {% endif %}
 {% endblock modals %}

@@ -30721,30 +30721,37 @@ module.exports = (Handlebars["default"] || Handlebars).template({"1":function(co
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function($) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "show_modal_with_batch", function() { return show_modal_with_batch; });
+/* WEBPACK VAR INJECTION */(function($) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateBatchLinks", function() { return CreateBatchLinks; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LinkBatchHistory", function() { return LinkBatchHistory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LinkEntry", function() { return LinkEntry; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LinkBatchModal", function() { return LinkBatchModal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "show_modal_with_batch", function() { return show_modal_with_batch; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "init", function() { return init; });
-/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_bind__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(102);
-/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_bind__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_instance_bind__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_corejs3_core_js_stable_parse_int__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(209);
-/* harmony import */ var _babel_runtime_corejs3_core_js_stable_parse_int__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_parse_int__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_corejs3_helpers_typeof__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(115);
-/* harmony import */ var _babel_runtime_corejs3_helpers_typeof__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_helpers_typeof__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_trim__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(76);
-/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_trim__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_instance_trim__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_map__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(108);
-/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_map__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_instance_map__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_filter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(196);
-/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_filter__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_instance_filter__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _babel_runtime_corejs3_core_js_stable_set_interval__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(283);
-/* harmony import */ var _babel_runtime_corejs3_core_js_stable_set_interval__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_set_interval__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_find__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(35);
-/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_find__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_instance_find__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_reduce__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(297);
-/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_reduce__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_instance_reduce__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _babel_runtime_corejs3_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(115);
+/* harmony import */ var _babel_runtime_corejs3_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_trim__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(76);
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_trim__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_instance_trim__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(108);
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_map__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_instance_map__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_filter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(196);
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_filter__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_instance_filter__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_set_interval__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(283);
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_set_interval__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_set_interval__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_find__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(35);
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_find__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_instance_find__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_reduce__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(297);
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_reduce__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_instance_reduce__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_for_each__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(180);
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_for_each__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_instance_for_each__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_includes__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(307);
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_includes__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_instance_includes__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_concat__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(303);
 /* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_concat__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_instance_concat__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_for_each__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(180);
-/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_for_each__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_instance_for_each__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_bind__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(102);
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_bind__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_instance_bind__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_parse_int__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(209);
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_parse_int__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_parse_int__WEBPACK_IMPORTED_MODULE_11__);
+
 
 
 
@@ -30775,12 +30782,25 @@ var Modals = __webpack_require__(290);
 
 var ProgressBarHelper = __webpack_require__(288);
 
-var batchHistoryTemplate = __webpack_require__(307);
-
 var batchLinksTemplate = __webpack_require__(309);
 
 var target_folder;
-var spinner = new Spinner({
+var interval; // elements in the DOM, retrieved during init()
+
+var $batch_details, $batch_details_wrapper, $batch_modal_title, $batch_progress_report, $batch_target_path, $create_batch_wrapper, $export_csv, $input, $input_area, $loading, $modal, $spinner, $start_button; // Vue helpers
+
+var humanTimestamp = function humanTimestamp(datetime) {
+  return new Date(datetime).toLocaleString("en-us", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit"
+  });
+};
+
+var STEPS = 6;
+var SPINNER = new Spinner({
   lines: 15,
   length: 10,
   width: 2,
@@ -30788,10 +30808,191 @@ var spinner = new Spinner({
   corners: 0,
   color: '#222222',
   trail: 50
-});
-var interval; // elements in the DOM, retrieved during init()
+}); // Vue components
 
-var $batch_details, $batch_details_wrapper, $batch_history, $batch_list_container, $batch_modal_title, $batch_progress_report, $batch_target_path, $create_batch, $create_batch_wrapper, $export_csv, $input, $input_area, $loading, $modal, $spinner, $start_button;
+var CreateBatchLinks = {
+  template: "\n    <p id=\"create-batch-links\">or <a id=\"create-batch\" ref=\"createBatch\" data-toggle=\"modal\" href=\"#batch-modal\" @click=\"returnFocus\">create multiple links</a></p>\n  ",
+  methods: {
+    returnFocus: function returnFocus() {
+      Modals.returnFocusTo(this.$refs.createBatch);
+    }
+  }
+};
+var LinkBatchHistory = {
+  data: function data() {
+    return {
+      batches: null,
+      moreBatches: false
+    };
+  },
+  created: function created() {
+    this.fetchBatches();
+  },
+  mounted: function mounted() {// These events handlers aren't getting picked up.... not sure why.
+    // Let's check and see if they are working in prod.
+    // let self = this;
+    // $(self.$refs.batchHistory)
+    //   .on('shown.bs.collapse', function(){
+    //     self.adjustScrolling();
+    //   })
+    //   .on('hidden.bs.collapse', function(){
+    //     self.adjustScrolling();
+    //   });
+  },
+  methods: {
+    fetchBatches: function fetchBatches() {
+      var _this = this;
+
+      var limit = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 7;
+
+      if (settings.ENABLE_BATCH_LINKS) {
+        APIModule.request('GET', '/archives/batches/', {
+          'limit': limit
+        }).then(function (data) {
+          if (data.objects.length > 0) {
+            _this.batches = data.objects;
+            _this.moreBatches = data.meta.next;
+
+            _this.adjustScrolling();
+          }
+        });
+      }
+    },
+    adjustScrolling: function adjustScrolling() {
+      DOMHelpers.scrollIfTallerThanFractionOfViewport(".col-folders", 0.9);
+    },
+    showAll: function showAll(e) {
+      this.fetchBatches(null);
+      this.$refs.batchHistory.focus();
+    },
+    displayBatch: function displayBatch(e) {
+      var target = e.target;
+
+      if (target.matches('a[data-batch]')) {
+        var _context;
+
+        var batch = target.dataset.batch;
+        var folderPath = target.dataset.folderpath;
+
+        var org = _babel_runtime_corejs3_core_js_stable_parse_int__WEBPACK_IMPORTED_MODULE_11___default()(target.dataset.org);
+
+        Helpers.triggerOnWindow('batchLink.reloadTreeForFolder', {
+          folderId: folderPath.split('-'),
+          orgId: org
+        });
+
+        _babel_runtime_corejs3_core_js_stable_instance_bind__WEBPACK_IMPORTED_MODULE_10___default()(_context = $(window)).call(_context, "folderTree.ready.batchToggle", function () {
+          $input.hide();
+          show_modal_with_batch(batch);
+          Modals.returnFocusTo(target);
+          $(window).unbind("folderTree.ready.batchToggle");
+        });
+      }
+    }
+  },
+  filters: {
+    humanTimestamp: humanTimestamp
+  },
+  template: "\n    <div id=\"batch-list-container\" :class=\"{ _hide: !batches }\">\n      <div id=\"batch-list-toggle\">\n        <a role=\"button\" class=\"dropdown\" data-toggle=\"collapse\" href=\"#batch-history\" aria-expanded=\"false\" aria-controls=\"batch-history\">\n          <h3>Link Batch History</h3>\n        </a>\n      </div>\n      <div id=\"batch-history\" ref=\"batchHistory\" class=\"collapse\" tabindex=\"-1\">\n        <ul class=\"item-container\" @click.prevent=\"displayBatch\">\n          <li class=\"item-subtitle\"\n              v-for=\"batch in batches\"\n              :key=\"batch.id\">\n            <a href=\"#\"\n               :data-batch=\"batch.id\"\n               :data-folderpath=\"batch.target_folder.path\"\n               :data-org=\"batch.target_folder.organization\">\n               <span class=\"sr-only\">Batch created </span>\n               {{ batch.started_on | humanTimestamp }}\n            </a>\n          </li>\n        </ul>\n        <a href=\"#\" id=\"all-batches\" v-if=\"moreBatches\" @click.prevent=\"showAll\">all batches</a>\n      </div>\n    </div>"
+};
+var LinkEntry = {
+  props: ['captureJob'],
+  computed: {
+    progress: function progress() {
+      return this.captureJob.step_count / STEPS * 100;
+    },
+    localUrl: function localUrl() {
+      var _context2;
+
+      return this.captureJob.guid ? _babel_runtime_corejs3_core_js_stable_instance_concat__WEBPACK_IMPORTED_MODULE_9___default()(_context2 = "//".concat(window.host, "/")).call(_context2, this.captureJob.guid) : null;
+    },
+    isError: function isError() {
+      var _context3;
+
+      return !_babel_runtime_corejs3_core_js_stable_instance_includes__WEBPACK_IMPORTED_MODULE_8___default()(_context3 = ['pending', 'in_progress', 'completed']).call(_context3, this.captureJob.status);
+    },
+    errorMessage: function errorMessage() {
+      return APIModule.stringFromNestedObject(JSON.parse(this.captureJob.message)) || "Error processing request";
+    }
+  },
+  template: "\n    <div :class=\"['item-container', { _isFailed: isError || captureJob.user_deleted }]\">\n      <div class=\"row\">\n          <div v-if=\"isError\" class=\"link-desc col col-sm-6 col-md-60\">\n            <div class=\"failed_header\">{{ errorMessage }}</div>\n            <div class=\"item-title\">We\u2019re unable to create your Perma Link.</div>\n            <div class=\"item-date\">submitted: {{ captureJob.submitted_url }}</div>\n          </div>\n          <template v-else>\n            <div class=\"link-desc col col-sm-6 col-md-60\">\n              <div class=\"item-title\">{{ captureJob.title }}</div>\n              <div class=\"item-subtitle\">{{ captureJob.submitted_url }}</div>\n            </div>\n            <div class=\"link-progress col col-sm-6 col-md-40 align-right item-permalink\">\n              <a class=\"perma no-drag\" :href=\"localUrl\" target=\"_blank\">{{localUrl}}</a>\n            </div>\n          </template>\n      </div>\n    </div>\n  "
+};
+var LinkBatchModal = {
+  components: {
+    'link-entry': LinkEntry
+  },
+  data: function data() {
+    return {
+      urlList: "",
+      batchId: null,
+      targetFolderId: null,
+      captureJobs: null,
+      showSpinner: false,
+      showExport: false
+    };
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    $(this.$refs.modal).on('hidden.bs.modal', function () {
+      // reset the modal so it's fresh
+      _this2.batchId = null;
+      _this2.urlList = "";
+
+      _this2.stopSpinner();
+
+      _this2.showExport = false;
+    });
+  },
+  watch: {
+    batchId: function batchId(oldId, newID) {
+      this.fetchLinks();
+    }
+  },
+  computed: {
+    title: function title() {
+      return this.captureJobs ? "Link Batch Details" : "Create A Link Batch";
+    },
+    batchComplete: function batchComplete() {},
+    percentageComplete: function percentageComplete() {},
+    exportUrl: function exportUrl() {
+      return this.batchId ? "/api/v1/archives/batches/".concat(this.batchId, "/export") : "#";
+    }
+  },
+  methods: {
+    fetchLinks: function fetchLinks() {
+      var _this3 = this;
+
+      if (this.batchId) {
+        APIModule.request('GET', "/archives/batches/".concat(this.batchId)).then(function (data) {
+          _this3.captureJobs = data.capture_jobs;
+          _this3.targetFolderId = data.target_folder.id;
+        });
+      }
+    },
+    startSpinner: function startSpinner() {
+      if (!this.$refs.spinner.childElementCount) {
+        SPINNER.spin(this.$refs.spinner);
+      }
+
+      this.showSpinner = true;
+    },
+    stopSpinner: function stopSpinner() {
+      this.showSpinner = false;
+      SPINNER.stop();
+    }
+  },
+  template: "\n    <div class=\"modal\" id=\"batch-modal\" ref=\"modal\" tabindex=\"-1\" role=\"dialog\" aria-labelled-by=\"batch-modal-title\">\n      <div class=\"modal-dialog modal-lg\" role=\"document\">\n        <div class=\"modal-content\">\n\n          <div class=\"modal-header\">\n            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n              <span aria-hidden=\"true\">&times;</span>\n            </button>\n            <h3 id=\"batch-modal-title\" class=\"modal-title\">{{ title }}</h3>\n          </div>\n\n          <div ref=\"spinner\" :class=\"[{ _hide: !showSpinner}, 'spinner']\">\n          <span class=\"sr-only\" id=\"loading\" tabindex=\"-1\">Loading</span></div>\n\n          <div class=\"modal-body\">\n            <div v-if=\"captureJobs\" id=\"batch-details-wrapper\" tabindex=\"-1\" :class=\"{ _hide: !captureJobs}\">\n              <p id=\"batch-progress-report\" role=\"log\" aria-atomic=\"false\"></p>\n              <div id=\"batch-details\" aria-describedby=\"batch-progress-report\">\n                <!-- NB: Tabindexes on these elements and their children are overridden via js -->\n                <div class=\"form-group\">\n                  <p>These Perma Links were added to {{ folder }}</p>\n                </div>\n                <div class=\"form-group\">\n                  <div v-for=\"captureJob in captureJobs\">\n                    <link-entry :captureJob=\"captureJob\"></link-entry>\n                  </div>\n                </div>\n              </div>\n              <div class=\"form-buttons\">\n                <button class=\"btn cancel\" data-dismiss=\"modal\">Exit</button>\n                <a :href=\"exportUrl\" id=\"export-csv\" :class=\"[ {_hide: !showExport}, 'btn' ]\">Export list as CSV</a>\n              </div>\n            </div>\n            <div v-else id=\"batch-create-input\">\n              <div class=\"form-group\">\n                <label id=\"batch-target\" for=\"batch-target-path\" class=\"label-affil\">These Perma Links will be affiliated with</label>\n                <select id=\"batch-target-path\" class=\"form-control\"></select>\n              </div>\n              <div class=\"form-group\">\n                <textarea v-model=\"urlList\" aria-label=\"Paste your URLs here (one URL per line)\" placeholder=\"Paste your URLs here (one URL per line)\"></textarea>\n              </div>\n              <div class=\"form-buttons\">\n                <button id=\"start-batch\" class=\"btn\" disabled=\"disabled\">Create Links</button>\n                <button class=\"btn cancel\" data-dismiss=\"modal\">Cancel</button>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  "
+}; // Vue app
+
+var app = new Vue({
+  el: '#vue-app',
+  components: {
+    'link-batch-history': LinkBatchHistory,
+    'link-batch-modal': LinkBatchModal,
+    'create-batch-links': CreateBatchLinks
+  }
+}); // Original JS
 
 function render_batch(links_in_batch, folder_path) {
   var average_capture_time = average; //global var set by template
@@ -30803,12 +31004,9 @@ function render_batch(links_in_batch, folder_path) {
   var batch_progress = [];
   var errors = 0;
 
-  _babel_runtime_corejs3_core_js_stable_instance_for_each__WEBPACK_IMPORTED_MODULE_10___default()(links_in_batch).call(links_in_batch, function (link) {
-    var _context;
-
-    link.progress = link.step_count / steps * 100;
-    link.local_url = link.guid ? _babel_runtime_corejs3_core_js_stable_instance_concat__WEBPACK_IMPORTED_MODULE_9___default()(_context = "".concat(window.host, "/")).call(_context, link.guid) : null;
-
+  _babel_runtime_corejs3_core_js_stable_instance_for_each__WEBPACK_IMPORTED_MODULE_7___default()(links_in_batch).call(links_in_batch, function (link) {
+    // link.progress = (link.step_count / steps) * 100;
+    // link.local_url = link.guid ? `${window.host}/${link.guid}` : null;
     switch (link.status) {
       case "pending":
         link.isPending = true; // divide into batches; each batch takes average_capture_time to complete
@@ -30816,9 +31014,9 @@ function render_batch(links_in_batch, folder_path) {
         var waitMinutes = Math.round(Math.floor(link.queue_position / celery_workers) * average_capture_time / 60);
 
         if (waitMinutes >= 1) {
-          var _context2;
+          var _context4;
 
-          link.beginsIn = _babel_runtime_corejs3_core_js_stable_instance_concat__WEBPACK_IMPORTED_MODULE_9___default()(_context2 = "about ".concat(waitMinutes, " minute")).call(_context2, waitMinutes > 1 ? 's' : '', ".");
+          link.beginsIn = _babel_runtime_corejs3_core_js_stable_instance_concat__WEBPACK_IMPORTED_MODULE_9___default()(_context4 = "about ".concat(waitMinutes, " minute")).call(_context4, waitMinutes > 1 ? 's' : '', ".");
         } else {
           link.beginsIn = "less than 1 minute.";
         }
@@ -30845,15 +31043,15 @@ function render_batch(links_in_batch, folder_path) {
     }
   });
 
-  var percent_complete = Math.round(_babel_runtime_corejs3_core_js_stable_instance_reduce__WEBPACK_IMPORTED_MODULE_8___default()(batch_progress).call(batch_progress, function (a, b) {
+  var percent_complete = Math.round(_babel_runtime_corejs3_core_js_stable_instance_reduce__WEBPACK_IMPORTED_MODULE_6___default()(batch_progress).call(batch_progress, function (a, b) {
     return a + b;
   }, 0) / (batch_progress.length * 100) * 100);
   var message = "Batch ".concat(percent_complete, "% complete.");
 
   if (errors > 0) {
-    var _context3;
+    var _context5;
 
-    message += _babel_runtime_corejs3_core_js_stable_instance_concat__WEBPACK_IMPORTED_MODULE_9___default()(_context3 = " <span>".concat(errors, " error")).call(_context3, errors > 1 ? 's' : '', ".</span>");
+    message += _babel_runtime_corejs3_core_js_stable_instance_concat__WEBPACK_IMPORTED_MODULE_9___default()(_context5 = " <span>".concat(errors, " error")).call(_context5, errors > 1 ? 's' : '', ".</span>");
   }
 
   $batch_progress_report.html(message);
@@ -30880,15 +31078,10 @@ function handle_error(error) {
 }
 
 function show_batch(batch_id) {
-  $batch_details_wrapper.removeClass("_hide");
-  $batch_modal_title.text("Link Batch Details");
-  $export_csv.attr("href", "/api/v1/archives/batches/".concat(batch_id, "/export"));
-
-  if (!$spinner[0].childElementCount) {
-    spinner.spin($spinner[0]);
-    $spinner.removeClass("_hide");
-  }
-
+  // show batch details
+  // alter the modal title
+  // set exportUrl
+  // start the spinner
   var first_time = true;
 
   var retrieve_and_render = function retrieve_and_render() {
@@ -30896,11 +31089,11 @@ function show_batch(batch_id) {
       if (first_time) {
         first_time = false;
         $modal.focus();
-        spinner.stop();
+        SPINNER.stop();
         $spinner.addClass("_hide");
         $batch_details.attr("aria-hidden", "true"); // prevents tabbing to elements that are getting swapped out
 
-        _babel_runtime_corejs3_core_js_stable_instance_find__WEBPACK_IMPORTED_MODULE_7___default()($batch_details).call($batch_details, '*').each(function () {
+        _babel_runtime_corejs3_core_js_stable_instance_find__WEBPACK_IMPORTED_MODULE_5___default()($batch_details).call($batch_details, '*').each(function () {
           $(this).attr('tabIndex', '-1');
         });
       }
@@ -30912,7 +31105,7 @@ function show_batch(batch_id) {
         clearInterval(interval);
         $batch_details.attr("aria-hidden", "false"); // undo our special focus handling
 
-        _babel_runtime_corejs3_core_js_stable_instance_find__WEBPACK_IMPORTED_MODULE_7___default()($batch_details).call($batch_details, '*').each(function () {
+        _babel_runtime_corejs3_core_js_stable_instance_find__WEBPACK_IMPORTED_MODULE_5___default()($batch_details).call($batch_details, '*').each(function () {
           $(this).removeAttr('tabIndex');
         });
       }
@@ -30922,7 +31115,7 @@ function show_batch(batch_id) {
   };
 
   retrieve_and_render();
-  interval = _babel_runtime_corejs3_core_js_stable_set_interval__WEBPACK_IMPORTED_MODULE_6___default()(retrieve_and_render, 2000);
+  interval = _babel_runtime_corejs3_core_js_stable_set_interval__WEBPACK_IMPORTED_MODULE_4___default()(retrieve_and_render, 2000);
 }
 
 function show_modal_with_batch(batch_id) {
@@ -30931,17 +31124,17 @@ function show_modal_with_batch(batch_id) {
 }
 
 function start_batch() {
-  var _context4, _context5;
+  var _context6, _context7;
 
   $input.hide();
-  spinner.spin($spinner[0]);
+  SPINNER.spin($spinner[0]);
   $spinner.removeClass("_hide");
   $loading.focus();
   APIModule.request('POST', '/archives/batches/', {
     "target_folder": target_folder,
-    "urls": _babel_runtime_corejs3_core_js_stable_instance_filter__WEBPACK_IMPORTED_MODULE_5___default()(_context4 = _babel_runtime_corejs3_core_js_stable_instance_map__WEBPACK_IMPORTED_MODULE_4___default()(_context5 = $input_area.val().split("\n")).call(_context5, function (s) {
-      return _babel_runtime_corejs3_core_js_stable_instance_trim__WEBPACK_IMPORTED_MODULE_3___default()(s).call(s);
-    })).call(_context4, Boolean),
+    "urls": _babel_runtime_corejs3_core_js_stable_instance_filter__WEBPACK_IMPORTED_MODULE_3___default()(_context6 = _babel_runtime_corejs3_core_js_stable_instance_map__WEBPACK_IMPORTED_MODULE_2___default()(_context7 = $input_area.val().split("\n")).call(_context7, function (s) {
+      return _babel_runtime_corejs3_core_js_stable_instance_trim__WEBPACK_IMPORTED_MODULE_1___default()(s).call(s);
+    })).call(_context6, Boolean),
     "human": true
   }).then(function (data) {
     show_batch(data.id);
@@ -30962,13 +31155,13 @@ function refresh_target_path_dropdown() {
 ;
 
 function set_folder_from_trigger(evt, data) {
-  if (_babel_runtime_corejs3_helpers_typeof__WEBPACK_IMPORTED_MODULE_2___default()(data) !== 'object') {
+  if (_babel_runtime_corejs3_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(data) !== 'object') {
     data = JSON.parse(data);
   }
 
   target_folder = data.folderId;
 
-  _babel_runtime_corejs3_core_js_stable_instance_find__WEBPACK_IMPORTED_MODULE_7___default()($batch_target_path).call($batch_target_path, "option").each(function () {
+  _babel_runtime_corejs3_core_js_stable_instance_find__WEBPACK_IMPORTED_MODULE_5___default()($batch_target_path).call($batch_target_path, "option").each(function () {
     if ($(this).val() == target_folder) {
       $(this).prop("selected", true);
     }
@@ -30982,29 +31175,6 @@ function set_folder_from_dropdown(new_folder_id) {
 }
 
 ;
-
-function populate_link_batch_list() {
-  var limit = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 7;
-
-  if (settings.ENABLE_BATCH_LINKS) {
-    APIModule.request('GET', '/archives/batches/', {
-      'limit': limit
-    }).then(function (data) {
-      if (data.objects.length > 0) {
-        var template = batchHistoryTemplate({
-          'link_batches': data.objects,
-          'next': data.meta.next
-        });
-        $batch_history.html(template);
-        $batch_list_container.removeClass('_hide');
-        DOMHelpers.scrollIfTallerThanFractionOfViewport(".col-folders", 0.9);
-      }
-    }).catch(function (e) {
-      console.log(e);
-      $batch_history.html('<p>(unavailable)</p>');
-    });
-  }
-}
 
 function setup_handlers() {
   // listen for folder changes from other UI components
@@ -31026,55 +31196,11 @@ function setup_handlers() {
       $start_button.prop('disabled', true);
     }
   });
-  $modal.on('shown.bs.modal', refresh_target_path_dropdown).on('hidden.bs.modal', function () {
-    $input.show();
-    $input_area.val("");
-    $batch_details_wrapper.addClass("_hide");
-    $batch_details.empty();
-    spinner.stop();
-    $spinner.addClass("_hide");
-    $export_csv.addClass("_hide");
-    $batch_progress_report.empty();
-  }).on('hide.bs.modal', function () {
+  $modal.on('shown.bs.modal', refresh_target_path_dropdown).on('hide.bs.modal', function () {
     clearInterval(interval);
     $(window).trigger("BatchLinkModule.refreshLinkList");
   });
   $start_button.click(start_batch);
-  $batch_list_container.on('shown.bs.collapse', function () {
-    DOMHelpers.scrollIfTallerThanFractionOfViewport(".col-folders", 0.9);
-  }).on('hidden.bs.collapse', function () {
-    DOMHelpers.scrollIfTallerThanFractionOfViewport(".col-folders", 0.9);
-  });
-  $create_batch.click(function () {
-    Modals.returnFocusTo(this);
-  });
-  $batch_history.delegate('a[data-batch]', 'click', function (e) {
-    var _context6,
-        _this = this;
-
-    e.preventDefault();
-    var batch = this.dataset.batch;
-    var folderPath = this.dataset.folderpath;
-
-    var org = _babel_runtime_corejs3_core_js_stable_parse_int__WEBPACK_IMPORTED_MODULE_1___default()(this.dataset.org);
-
-    Helpers.triggerOnWindow('batchLink.reloadTreeForFolder', {
-      folderId: folderPath.split('-'),
-      orgId: org
-    });
-
-    _babel_runtime_corejs3_core_js_stable_instance_bind__WEBPACK_IMPORTED_MODULE_0___default()(_context6 = $(window)).call(_context6, "folderTree.ready.batchToggle", function () {
-      $input.hide();
-      show_modal_with_batch(batch);
-      Modals.returnFocusTo(_this);
-      $(window).unbind("folderTree.ready.batchToggle");
-    });
-  });
-  $batch_history.delegate('#all-batches', 'click', function (e) {
-    e.preventDefault();
-    populate_link_batch_list(null);
-    $batch_history.focus();
-  });
 }
 
 ;
@@ -31082,12 +31208,9 @@ function init() {
   $(function () {
     $batch_details = $('#batch-details');
     $batch_details_wrapper = $('#batch-details-wrapper');
-    $batch_history = $("#batch-history");
-    $batch_list_container = $('#batch-list-container');
     $batch_modal_title = $("#batch-modal-title");
     $batch_progress_report = $('#batch-progress-report');
     $batch_target_path = $('#batch-target-path');
-    $create_batch = $('#create-batch');
     $create_batch_wrapper = $('#create-batch-links');
     $export_csv = $('#export-csv');
     $input = $('#batch-create-input');
@@ -31096,7 +31219,6 @@ function init() {
     $modal = $("#batch-modal");
     $spinner = $('.spinner');
     $start_button = $('#start-batch');
-    populate_link_batch_list();
     setup_handlers();
   });
 }
@@ -31253,65 +31375,16 @@ module.exports = entryVirtual('Array').concat;
 /* 307 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Handlebars = __webpack_require__(279);
-function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
-    var stack1, alias1=container.lambda, alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
-        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
-          return parent[propertyName];
-        }
-        return undefined
-    };
-
-  return "  <li class=\"item-subtitle\">\n    <a href=\"#\" data-batch="
-    + alias2(alias1((depth0 != null ? lookupProperty(depth0,"id") : depth0), depth0))
-    + " data-folderpath=\""
-    + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"target_folder") : depth0)) != null ? lookupProperty(stack1,"path") : stack1), depth0))
-    + "\" data-org=\""
-    + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"target_folder") : depth0)) != null ? lookupProperty(stack1,"organization") : stack1), depth0))
-    + "\"><span class=\"sr-only\">Batch created </span>"
-    + alias2(__default(__webpack_require__(308)).call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? lookupProperty(depth0,"started_on") : depth0),{"name":"human_timestamp","hash":{},"data":data,"loc":{"start":{"line":4,"column":165},"end":{"line":4,"column":197}}}))
-    + "</a>\n  </li>\n";
-},"3":function(container,depth0,helpers,partials,data) {
-    return "<a href=\"#\" id=\"all-batches\">all batches</a>";
-},"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
-        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
-          return parent[propertyName];
-        }
-        return undefined
-    };
-
-  return "<ul class=\"item-container\">\n"
-    + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"link_batches") : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":2,"column":0},"end":{"line":6,"column":9}}})) != null ? stack1 : "")
-    + "</ul>\n"
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,(depth0 != null ? lookupProperty(depth0,"next") : depth0),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":8,"column":0},"end":{"line":8,"column":63}}})) != null ? stack1 : "")
-    + "\n\n";
-},"useData":true});
+module.exports = __webpack_require__(308);
 
 /***/ }),
 /* 308 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return human_timestamp; });
-var Handlebars = __webpack_require__(279);
+var parent = __webpack_require__(468);
 
-function _human_timestamp(datetime) {
-  return new Date(datetime).toLocaleString("en-us", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    hour: "numeric",
-    minute: "2-digit"
-  });
-}
+module.exports = parent;
 
-function human_timestamp(datetime) {
-  return Handlebars.escapeExpression(_human_timestamp(datetime));
-}
-;
 
 /***/ }),
 /* 309 */
@@ -31433,6 +31506,301 @@ module.exports = (Handlebars["default"] || Handlebars).template({"1":function(co
     + ((stack1 = lookupProperty(helpers,"each").call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? lookupProperty(depth0,"links") : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":7,"column":0},"end":{"line":34,"column":9}}})) != null ? stack1 : "")
     + "</div>\n";
 },"usePartial":true,"useData":true});
+
+/***/ }),
+/* 310 */,
+/* 311 */,
+/* 312 */,
+/* 313 */,
+/* 314 */,
+/* 315 */,
+/* 316 */,
+/* 317 */,
+/* 318 */,
+/* 319 */,
+/* 320 */,
+/* 321 */,
+/* 322 */,
+/* 323 */,
+/* 324 */,
+/* 325 */,
+/* 326 */,
+/* 327 */,
+/* 328 */,
+/* 329 */,
+/* 330 */,
+/* 331 */,
+/* 332 */,
+/* 333 */,
+/* 334 */,
+/* 335 */,
+/* 336 */,
+/* 337 */,
+/* 338 */,
+/* 339 */,
+/* 340 */,
+/* 341 */,
+/* 342 */,
+/* 343 */,
+/* 344 */,
+/* 345 */,
+/* 346 */,
+/* 347 */,
+/* 348 */,
+/* 349 */,
+/* 350 */,
+/* 351 */,
+/* 352 */,
+/* 353 */,
+/* 354 */,
+/* 355 */,
+/* 356 */,
+/* 357 */,
+/* 358 */,
+/* 359 */,
+/* 360 */,
+/* 361 */,
+/* 362 */,
+/* 363 */,
+/* 364 */,
+/* 365 */,
+/* 366 */,
+/* 367 */,
+/* 368 */,
+/* 369 */,
+/* 370 */,
+/* 371 */,
+/* 372 */,
+/* 373 */,
+/* 374 */,
+/* 375 */,
+/* 376 */,
+/* 377 */,
+/* 378 */,
+/* 379 */,
+/* 380 */,
+/* 381 */,
+/* 382 */,
+/* 383 */,
+/* 384 */,
+/* 385 */,
+/* 386 */,
+/* 387 */,
+/* 388 */,
+/* 389 */,
+/* 390 */,
+/* 391 */,
+/* 392 */,
+/* 393 */,
+/* 394 */,
+/* 395 */,
+/* 396 */,
+/* 397 */,
+/* 398 */,
+/* 399 */,
+/* 400 */,
+/* 401 */,
+/* 402 */,
+/* 403 */,
+/* 404 */,
+/* 405 */,
+/* 406 */,
+/* 407 */,
+/* 408 */,
+/* 409 */,
+/* 410 */,
+/* 411 */,
+/* 412 */,
+/* 413 */,
+/* 414 */,
+/* 415 */,
+/* 416 */,
+/* 417 */,
+/* 418 */,
+/* 419 */,
+/* 420 */,
+/* 421 */,
+/* 422 */,
+/* 423 */,
+/* 424 */,
+/* 425 */,
+/* 426 */,
+/* 427 */,
+/* 428 */,
+/* 429 */,
+/* 430 */,
+/* 431 */,
+/* 432 */,
+/* 433 */,
+/* 434 */,
+/* 435 */,
+/* 436 */,
+/* 437 */,
+/* 438 */,
+/* 439 */,
+/* 440 */,
+/* 441 */,
+/* 442 */,
+/* 443 */,
+/* 444 */,
+/* 445 */,
+/* 446 */,
+/* 447 */,
+/* 448 */,
+/* 449 */,
+/* 450 */,
+/* 451 */,
+/* 452 */,
+/* 453 */,
+/* 454 */,
+/* 455 */,
+/* 456 */,
+/* 457 */,
+/* 458 */,
+/* 459 */,
+/* 460 */,
+/* 461 */,
+/* 462 */,
+/* 463 */,
+/* 464 */,
+/* 465 */,
+/* 466 */,
+/* 467 */,
+/* 468 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var arrayIncludes = __webpack_require__(469);
+var stringIncludes = __webpack_require__(471);
+
+var ArrayPrototype = Array.prototype;
+var StringPrototype = String.prototype;
+
+module.exports = function (it) {
+  var own = it.includes;
+  if (it === ArrayPrototype || (it instanceof Array && own === ArrayPrototype.includes)) return arrayIncludes;
+  if (typeof it === 'string' || it === StringPrototype || (it instanceof String && own === StringPrototype.includes)) {
+    return stringIncludes;
+  } return own;
+};
+
+
+/***/ }),
+/* 469 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(470);
+var entryVirtual = __webpack_require__(56);
+
+module.exports = entryVirtual('Array').includes;
+
+
+/***/ }),
+/* 470 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var $ = __webpack_require__(5);
+var $includes = __webpack_require__(90).includes;
+var addToUnscopables = __webpack_require__(54);
+var arrayMethodUsesToLength = __webpack_require__(55);
+
+var USES_TO_LENGTH = arrayMethodUsesToLength('indexOf', { ACCESSORS: true, 1: 0 });
+
+// `Array.prototype.includes` method
+// https://tc39.github.io/ecma262/#sec-array.prototype.includes
+$({ target: 'Array', proto: true, forced: !USES_TO_LENGTH }, {
+  includes: function includes(el /* , fromIndex = 0 */) {
+    return $includes(this, el, arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
+
+// https://tc39.github.io/ecma262/#sec-array.prototype-@@unscopables
+addToUnscopables('includes');
+
+
+/***/ }),
+/* 471 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(472);
+var entryVirtual = __webpack_require__(56);
+
+module.exports = entryVirtual('String').includes;
+
+
+/***/ }),
+/* 472 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var $ = __webpack_require__(5);
+var notARegExp = __webpack_require__(473);
+var requireObjectCoercible = __webpack_require__(16);
+var correctIsRegExpLogic = __webpack_require__(475);
+
+// `String.prototype.includes` method
+// https://tc39.github.io/ecma262/#sec-string.prototype.includes
+$({ target: 'String', proto: true, forced: !correctIsRegExpLogic('includes') }, {
+  includes: function includes(searchString /* , position = 0 */) {
+    return !!~String(requireObjectCoercible(this))
+      .indexOf(notARegExp(searchString), arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
+
+
+/***/ }),
+/* 473 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isRegExp = __webpack_require__(474);
+
+module.exports = function (it) {
+  if (isRegExp(it)) {
+    throw TypeError("The method doesn't accept regular expressions");
+  } return it;
+};
+
+
+/***/ }),
+/* 474 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isObject = __webpack_require__(18);
+var classof = __webpack_require__(15);
+var wellKnownSymbol = __webpack_require__(46);
+
+var MATCH = wellKnownSymbol('match');
+
+// `IsRegExp` abstract operation
+// https://tc39.github.io/ecma262/#sec-isregexp
+module.exports = function (it) {
+  var isRegExp;
+  return isObject(it) && ((isRegExp = it[MATCH]) !== undefined ? !!isRegExp : classof(it) == 'RegExp');
+};
+
+
+/***/ }),
+/* 475 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var wellKnownSymbol = __webpack_require__(46);
+
+var MATCH = wellKnownSymbol('match');
+
+module.exports = function (METHOD_NAME) {
+  var regexp = /./;
+  try {
+    '/./'[METHOD_NAME](regexp);
+  } catch (e) {
+    try {
+      regexp[MATCH] = false;
+      return '/./'[METHOD_NAME](regexp);
+    } catch (f) { /* empty */ }
+  } return false;
+};
+
 
 /***/ })
 /******/ ]);

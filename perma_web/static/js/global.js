@@ -50,4 +50,3 @@ $(document).on('click', '.popup-alert', function() {
 $('.collapse').on('shown.bs.collapse', function () {
   $(this).find('input[type="text"]').focus();
 });
-
