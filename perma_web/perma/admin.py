@@ -341,7 +341,7 @@ class LinkUserAdmin(UserAdmin):
         formset.save_m2m()
 
 
-class LinkAdmin(SimpleHistoryAdmin):
+class LinkAdmin(admin.ModelAdmin):
     list_display = ['guid', 'submitted_url', 'created_by', 'creation_timestamp', 'tag_list', 'is_private', 'user_deleted', 'cached_can_play_back', 'internet_archive_upload_status', 'warc_size']
     list_filter = [GUIDFilter, CreatedByFilter, SubmittedURLFilter, TagFilter, 'cached_can_play_back', 'internet_archive_upload_status']
     fieldsets = (

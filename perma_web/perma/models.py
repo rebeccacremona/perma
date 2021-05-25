@@ -1376,7 +1376,6 @@ class Link(DeletableModel):
 
     objects = LinkManager()
     tracker = FieldTracker()
-    history = HistoricalRecords()
     tags = TaggableManager(through=GenericStringTaggedItem, blank=True)
 
 
