@@ -172,14 +172,9 @@ def logs(log_dir=os.path.join(settings.PROJECT_ROOT, '../services/logs/')):
 
 
 @task
-def create_db(host='db', user='root', password='password'):
-    local("mysql -h {} -u{} -p{} -e 'create database perma character set utf8;'".format(host, user, password))
-
-
-@task
 def init_db():
     """
-        Run syncdb, apply migrations, and import fixtures for new dev database.
+        Apply migrations and import fixtures for new dev database.
     """
     local("python manage.py migrate")
     local("python manage.py loaddata fixtures/sites.json fixtures/users.json fixtures/folders.json")
