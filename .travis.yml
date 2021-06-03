@@ -4,7 +4,6 @@ python:
 env:
   global:
   - CFLAGS="-O0"
-  # - PGPORT=5433
   - PGUSER=travis
 
 dist: bionic
