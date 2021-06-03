@@ -18,7 +18,8 @@ from perma.tasks import run_next_capture
 from perma.models import Folder, CaptureJob, Link, Capture, Organization, LinkBatch
 
 from .utils import TastypiePagination, load_parent, raise_general_validation_error, \
-    raise_invalid_capture_job, dispatch_multiple_requests, reverse_api_view_relative
+    raise_invalid_capture_job, dispatch_multiple_requests, reverse_api_view_relative, \
+    url_is_invalid_unicode
 from .serializers import FolderSerializer, CaptureJobSerializer, LinkSerializer, AuthenticatedLinkSerializer, \
     LinkUserSerializer, OrganizationSerializer, LinkBatchSerializer, DetailedLinkBatchSerializer
 
@@ -356,9 +357,15 @@ class AuthenticatedLinkListView(BaseView):
     def post(self, request, format=None):
         """ Create new link. """
         data = request.data
+        submitted_url = request.data.get('url', '')
+
+        # Somehow it's possible for some control characters to get to the server
+        if url_is_invalid_unicode(submitted_url):
+            raise ValidationError({'url': "Unicode error while processing URL."})
+
         capture_job = CaptureJob(
             human=request.data.get('human', False),
-            submitted_url=request.data.get('url', ''),
+            submitted_url=submitted_url,
             created_by=request.user
         )
         if settings.ENABLE_BATCH_LINKS:
