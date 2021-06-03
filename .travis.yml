@@ -1,13 +1,17 @@
 language: python
 python:
   - "3.7"
-env: CFLAGS="-O0"
+env:
+  global:
+  - CFLAGS="-O0"
+  - PGPORT=5433
+  - PGUSER=travis
 
 dist: bionic
 
 services:
   - docker
-  - mysql
+  - postgresql
 
 # make sure perma.test resolves to localhost so our tests work
 addons:
@@ -17,6 +21,9 @@ addons:
   apt:
     packages:
       - libnss3-tools
+      - postgresql-11
+      - postgresql-client-11
+  postgresql: "11"
 
   # anything we might want to see from a failed build
   artifacts:
@@ -61,15 +68,8 @@ before_script:
   # linting
   - flake8 .
 
-  - sudo cp $TRAVIS_BUILD_DIR/services/mysql/conf.d/custom.cnf /etc/mysql/conf.d/
-  - sudo service mysql restart
-
-  - mysql -e 'CREATE DATABASE perma CHARACTER SET utf8;'
-
-  # try to avoid mysql has gone away errors
-  - mysql -e 'SET GLOBAL max_allowed_packet = 64*1024*1024;'
-  - mysql -e 'SET GLOBAL wait_timeout = 36000;'
-  - mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root mysql
+  # database
+  - psql -c 'create database travis_ci_test;' -U travis
 
   # spin up selenium and webrecorder
   # healthcheck adapted from https://stackoverflow.com/a/46005602

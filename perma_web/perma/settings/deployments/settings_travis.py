@@ -4,7 +4,9 @@
 from .deployments.settings_testing import *
 
 DATABASES['default']['HOST'] = '127.0.0.1'
-DATABASES['default']['USER'] = 'root'
+DATABASES['default']['PORT'] = '5433'
+DATABASES['default']['NAME'] = 'travis_ci_test'
+DATABASES['default']['USER'] = 'travis'
 DATABASES['default']['PASSWORD'] = ''
 
 SCAN_URL = 'http://localhost:8888/scan/'
