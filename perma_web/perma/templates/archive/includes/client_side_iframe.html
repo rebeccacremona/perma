@@ -5,7 +5,8 @@
   // This is so it doesn't crash before the "incompatible browser" message shows. 
 
   // Playback details
-  const name = "{{ link.warc_presigned_url | escapejs }}";
+  const name = "{{ link.wacz_presigned_url | escapejs }}";
+  // const name = "{{ link.warc_presigned_url | escapejs }}";
   const cls = "{{ interstitial|yesno:'interstitial,archive-iframe'}}";
   const origin = "{{ protocol }}{{ client_side_playback_host }}";
   const guid = "{{ link.guid }}";

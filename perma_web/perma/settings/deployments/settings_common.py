@@ -594,6 +594,7 @@ TESTING = False
 
 
 WARC_STORAGE_DIR = 'warcs'  # relative to MEDIA_ROOT
+WACZ_STORAGE_DIR = 'waczs'  # relative to MEDIA_ROOT
 
 
 ### LOCKSS ###
