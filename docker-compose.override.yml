@@ -71,6 +71,7 @@ services:
     volumes:
       - scoop_access_key:/app/docker/access_keys:delegated
       - ./services/docker/scoop-rest-api/config.py:/app/scoop_rest_api/config.py
+      - ./services/docker/scoop-rest-api/exporters/scoopToWARC.js:/app/node_modules/@harvard-lil/scoop/exporters/scoopToWARC.js
     networks:
       - scoop_rest_api
       - scoop_rest_api_internal
