@@ -71,6 +71,9 @@ services:
     volumes:
       - scoop_access_key:/app/docker/access_keys:delegated
       - ./services/docker/scoop-rest-api/config.py:/app/scoop_rest_api/config.py
+      - ./services/docker/scoop-rest-api/start_capture_process.py:/app/scoop_rest_api/commands/start_capture_process.py
+      - ./services/docker/scoop-rest-api/Scoop.js:/app/node_modules/@harvard-lil/scoop/Scoop.js
+      - ./services/docker/scoop-rest-api/ScoopProxy.js:/app/node_modules/@harvard-lil/scoop/intercepters/ScoopProxy.js
     networks:
       - scoop_rest_api
       - scoop_rest_api_internal
