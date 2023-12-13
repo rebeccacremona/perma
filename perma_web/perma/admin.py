@@ -588,10 +588,10 @@ class LinkAdmin(SimpleHistoryAdmin):
         (None, {'fields': ('guid', 'capture_job', 'submitted_url', 'submitted_url_surt','submitted_title', 'submitted_description', 'created_by', 'creation_timestamp', 'captured_by_software', 'captured_by_browser', 'file_size', 'replacement_link', 'tags')}),
         ('Visibility', {'fields': ('is_private', 'private_reason', 'is_unlisted',)}),
         ('User Delete', {'fields': ('user_deleted', 'user_deleted_timestamp',)}),
-        ('Organization', {'fields': ('folders', 'notes')}),
+        ('Organization', {'fields': ('folder', 'notes')}),
         ('Mirroring', {'fields': ('archive_timestamp', 'internet_archive_upload_status', 'cached_can_play_back')}),
     )
-    readonly_fields = ['guid', 'capture_job', 'folders', 'creation_timestamp', 'file_size', 'captured_by_software', 'captured_by_browser', 'archive_timestamp']
+    readonly_fields = ['guid', 'capture_job', 'folder', 'creation_timestamp', 'file_size', 'captured_by_software', 'captured_by_browser', 'archive_timestamp']
     inlines = [
         new_class("CaptureInline", admin.TabularInline, model=Capture,
                   fields=['role', 'status', 'url', 'content_type', 'record_type', 'user_upload'],

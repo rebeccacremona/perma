@@ -266,6 +266,7 @@ class ApiResourceTestCaseMixin(SimpleTestCase):
             self.assertKeys(data, kwargs['fields'])
 
         if kwargs.get('count', None):
+            # import pdb; pdb.set_trace()
             self.assertEqual(len(data['objects']), kwargs['count'])
 
         return data

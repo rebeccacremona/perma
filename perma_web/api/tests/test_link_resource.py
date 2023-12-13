@@ -66,7 +66,6 @@ class LinkResourceTestMixin():
         self.replaced_link_public_download_redirect_target = reverse('api:public_archives_download', args=['3SLN-JHX9'])
         self.replaced_link_authed_download_url = reverse('api:archives_download', args=['ABCD-0006'])
         self.replaced_link_authed_download_redirect_target = reverse('api:archives_download', args=['3SLN-JHX9'])
-        self.replaced_link_owner = LinkUser.objects.get(id=4)
 
         self.logged_out_fields = [
             'title',
@@ -187,7 +186,7 @@ class LinkResourceTestCase(LinkResourceTestMixin, ApiResourceTestCase):
         self.assertEqual(resp.url, self.replaced_link_public_download_redirect_target)
 
     def test_replaced_link_authed_download(self):
-        self.api_client.force_authenticate(user=self.replaced_link_owner)
+        self.api_client.force_authenticate(user=self.org_user)
         resp = self.api_client.get(self.replaced_link_authed_download_url)
         self.assertEqual(resp.status_code, 302)
         self.assertEqual(resp.url, self.replaced_link_authed_download_redirect_target)
@@ -195,7 +194,7 @@ class LinkResourceTestCase(LinkResourceTestMixin, ApiResourceTestCase):
     @patch('perma.utils.stream_warc', autospec=True)
     def test_private_download(self, stream):
         stream.return_value = StreamingHttpResponse(StringIO("warc placeholder"))
-        self.api_client.force_authenticate(user=self.regular_user)
+        self.api_client.force_authenticate(user=self.org_user)
         resp = self.api_client.get(
             self.logged_in_private_link_download_url,
         )
@@ -208,19 +207,19 @@ class LinkResourceTestCase(LinkResourceTestMixin, ApiResourceTestCase):
 
     def test_patch_detail(self):
         self.successful_patch(self.unrelated_link_detail_url,
-                              user=self.unrelated_link.created_by,
+                              user=self.org_user,
                               data={'notes': 'These are new notes',
                                     'title': 'This is a new title',
                                     'description': 'This is a new description'})
 
     def test_patch_default_view(self):
         self.successful_patch(self.capture_view_link_url,
-                              user=self.capture_view_link.created_by,
+                              user=self.org_user,
                               data={'default_to_screenshot_view': True})
 
     def test_should_reject_updates_to_disallowed_fields(self):
         response = self.rejected_patch(self.unrelated_link_detail_url,
-                                     user=self.unrelated_link.created_by,
+                                     user=self.org_user,
                                      data={'url':'foo'})
         self.assertIn(b"Only updates on these fields are allowed", response.content)
 
@@ -237,7 +236,7 @@ class LinkResourceTestCase(LinkResourceTestMixin, ApiResourceTestCase):
 
     def test_dark_archive(self):
         self.successful_patch(self.unrelated_link_detail_url,
-                              user=self.unrelated_link.created_by,
+                              user=self.org_user,
                               data={'is_private': True, 'private_reason':'user'})
 
     ##########
@@ -282,42 +281,42 @@ class LinkResourceTestCase(LinkResourceTestMixin, ApiResourceTestCase):
     #############
 
     def test_should_allow_filtering_guid_by_query_string(self):
-        data = self.successful_get(self.logged_in_list_url, data={'q': '3SLN'}, user=self.regular_user)
+        data = self.successful_get(self.logged_in_list_url, data={'q': '3SLN'}, user=self.org_user)
         objs = data['objects']
 
         self.assertEqual(len(objs), 1)
         self.assertEqual(objs[0]['guid'], '3SLN-JHX9')
 
     def test_should_allow_filtering_url_by_query_string(self):
-        data = self.successful_get(self.logged_in_list_url, data={'q': 'metafilter.com'}, user=self.regular_user)
+        data = self.successful_get(self.logged_in_list_url, data={'q': 'metafilter.com'}, user=self.org_user)
         objs = data['objects']
 
         self.assertEqual(len(objs), 2)
         self.assertEqual(objs[0]['url'], 'http://metafilter.com')
 
     def test_should_allow_filtering_title_by_query_string(self):
-        data = self.successful_get(self.logged_in_list_url, data={'q': 'Community Weblog'}, user=self.regular_user)
+        data = self.successful_get(self.logged_in_list_url, data={'q': 'Community Weblog'}, user=self.org_user)
         objs = data['objects']
 
         self.assertEqual(len(objs), 2)
         self.assertEqual(objs[0]['title'], 'MetaFilter | Community Weblog')
 
     def test_should_allow_filtering_notes_by_query_string(self):
-        data = self.successful_get(self.logged_in_list_url, data={'q': 'all cool things'}, user=self.regular_user)
+        data = self.successful_get(self.logged_in_list_url, data={'q': 'all cool things'}, user=self.org_user)
         objs = data['objects']
 
         self.assertEqual(len(objs), 2)
         self.assertEqual(objs[1]['notes'], 'Maybe the source of all cool things on the internet.')
 
     def test_should_allow_filtering_url(self):
-        data = self.successful_get(self.logged_in_list_url, data={'url': 'metafilter.com'}, user=self.regular_user)
+        data = self.successful_get(self.logged_in_list_url, data={'url': 'metafilter.com'}, user=self.org_user)
         objs = data['objects']
 
         self.assertEqual(len(objs), 2)
         self.assertEqual(objs[0]['title'], 'MetaFilter | Community Weblog')
 
     def test_should_allow_filtering_by_date_and_query(self):
-        data = self.successful_get(self.logged_in_list_url, data={'url': 'metafilter.com','date':"2016-12-07T18:55:37Z"}, user=self.regular_user)
+        data = self.successful_get(self.logged_in_list_url, data={'url': 'metafilter.com','date':"2016-12-07T18:55:37Z"}, user=self.org_user)
         objs = data['objects']
 
         self.assertEqual(len(objs), 1)
@@ -329,7 +328,7 @@ class LinkResourceTestCase(LinkResourceTestMixin, ApiResourceTestCase):
             'url': 'metafilter.com',
             'min_date':"2016-12-06T18:55:37Z",
             'max_date':"2016-12-08T18:55:37Z",
-        }, user=self.regular_user)
+        }, user=self.org_user)
         objs = data['objects']
 
         self.assertEqual(len(objs), 1)
@@ -422,7 +421,7 @@ class LinkResourceTransactionTestCase(LinkResourceTestMixin, ApiResourceTransact
         self.assertLessEqual(abs(link.warc_size-expected_size), 100)
 
         # check folder
-        self.assertTrue(link.folders.filter(pk=target_folder.pk).exists())
+        self.assertEqual(link.folder_id, target_folder.pk)
 
     @patch('perma.models.Registrar.link_creation_allowed', autospec=True)
     def test_should_create_archive_from_pdf_url(self, allowed):
@@ -440,7 +439,7 @@ class LinkResourceTransactionTestCase(LinkResourceTestMixin, ApiResourceTransact
         self.assertEqual(link.primary_capture.content_type, 'application/pdf')
 
         # check folder
-        self.assertTrue(link.folders.filter(pk=target_org.shared_folder.pk).exists())
+        self.assertEqual(link.folder_id, target_org.shared_folder.pk)
         self.assertEqual(link.organization, target_org)
         allowed.assert_called_once_with(target_org.shared_folder.organization.registrar)
 
@@ -684,7 +683,7 @@ class LinkResourceTransactionTestCase(LinkResourceTestMixin, ApiResourceTransact
 
         # establish baseline
         links_remaining, _ , bonus_links = self.regular_user.get_links_remaining()
-        self.assertEqual(links_remaining, 6)
+        self.assertEqual(links_remaining, 7)
         self.assertEqual(bonus_links, 0)
 
         # delete the bonus link
@@ -693,7 +692,7 @@ class LinkResourceTransactionTestCase(LinkResourceTestMixin, ApiResourceTransact
 
         # assertions
         links_remaining, links_remaining_period, bonus_links = self.regular_user.get_links_remaining()
-        self.assertEqual(links_remaining, 6)
+        self.assertEqual(links_remaining, 7)
         self.assertEqual(bonus_links, 1)
 
 

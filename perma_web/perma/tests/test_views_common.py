@@ -171,12 +171,23 @@ class CommonViewsTestCase(PermaTestCase):
             self.assertNotIn('link', response.headers)
 
             # check that top bar is displayed to logged-in users
-            for user in self.users:
+
+            # can playback
+            for user in ['test_org_user@example.com', 'multi_registrar_org_user@example.com', 'test_registrar_user@example.com', 'test_admin_user@example.com']:
                 self.log_in_user(user)
                 response = self.get('single_permalink', reverse_kwargs={'kwargs': {'guid': 'ABCD-0001'}})
                 self.assertIn(b"This record is private.", response.content)
                 self.assertNotIn('memento-datetime', response.headers)
                 self.assertNotIn('link', response.headers)
+
+            # cannot playback
+            self.log_in_user('test_user@example.com')
+            response = self.get('single_permalink', reverse_kwargs={'kwargs': {'guid': 'ABCD-0001'}}, require_status_code=403)
+            self.assertIn(b"This record is private and cannot be displayed.", response.content)
+            self.assertNotIn('memento-datetime', response.headers)
+            self.assertNotIn('link', response.headers)
+
+
 
     # Feature temporarily disabled
     """

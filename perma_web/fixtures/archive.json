@@ -3,9 +3,7 @@
     "pk": "7CF8-SS4G",
     "model": "perma.link",
     "fields": {
-      "folders": [
-        24
-      ],
+      "folder": 24,
       "is_unlisted": true,
       "notes": "",
       "created_by": 3,
@@ -21,9 +19,7 @@
     "pk": "JJ3S-2Q5N",
     "model": "perma.link",
     "fields": {
-      "folders": [
-        25
-      ],
+      "folder": 25,
       "is_unlisted": true,
       "notes": "",
       "created_by": 4,
@@ -39,12 +35,8 @@
     "pk": "3SLN-JHX9",
     "model": "perma.link",
     "fields": {
-      "folders": [
-        25,
-        27
-      ],
+      "folder": 27,
       "user_deleted": false,
-
       "created_by": 4,
       "user_deleted_timestamp": null,
       "submitted_title": "MetaFilter | Community Weblog",
@@ -60,12 +52,8 @@
     "pk": "TE73-AKWM",
     "model": "perma.link",
     "fields": {
-      "folders": [
-        25,
-        27
-      ],
+      "folder": 27,
       "user_deleted": false,
-
       "created_by": 4,
       "user_deleted_timestamp": null,
       "submitted_title": "MetaFilter | Community Weblog",
@@ -81,12 +69,8 @@
     "pk": "N1N0-33DB",
     "model": "perma.link",
     "fields": {
-      "folders": [
-        25,
-        27
-      ],
+      "folder": 27,
       "user_deleted": false,
-
       "created_by": 4,
       "user_deleted_timestamp": null,
       "submitted_title": "Dog.com",
@@ -103,12 +87,8 @@
     "pk": "M1L0-87DB",
     "model": "perma.link",
     "fields": {
-      "folders": [
-        25,
-        27
-      ],
+      "folder": 27,
       "user_deleted": false,
-
       "created_by": 4,
       "user_deleted_timestamp": null,
       "submitted_title": "Dog",
@@ -124,12 +104,8 @@
     "pk": "F1X1-LS24",
     "model": "perma.link",
     "fields": {
-      "folders": [
-        25,
-        27
-      ],
+      "folder": 27,
       "user_deleted": false,
-
       "created_by": 4,
       "user_deleted_timestamp": null,
       "submitted_title": "Dog",
@@ -146,10 +122,7 @@
     "pk": "ABCD-1234",
     "model": "perma.link",
     "fields": {
-      "folders": [
-        25,
-        34
-      ],
+      "folder": 34,
       "user_deleted": false,
       "created_by": 4,
       "user_deleted_timestamp": null,
@@ -166,10 +139,7 @@
     "pk": "EFGH-5678",
     "model": "perma.link",
     "fields": {
-      "folders": [
-        25,
-        35
-      ],
+      "folder": 35,
       "is_unlisted": true,
       "user_deleted": false,
       "user_deleted_timestamp": null,
@@ -187,9 +157,7 @@
     "pk": "UU32-XY8I",
     "model": "perma.link",
     "fields": {
-      "folders": [
-        30
-      ],
+      "folder": 30,
       "is_unlisted": false,
       "notes": "",
       "created_by": 4,
@@ -205,10 +173,7 @@
     "pk": "ABCD-0001",
     "model": "perma.link",
     "fields": {
-      "folders": [
-        30,
-        34
-      ],
+      "folder": 34,
       "notes": "Dark archived by user.",
       "created_by": 4,
       "is_private": true,
@@ -225,10 +190,7 @@
     "pk": "ABCD-0002",
     "model": "perma.link",
     "fields": {
-      "folders": [
-        30,
-        34
-      ],
+      "folder": 34,
       "notes": "Dark archived - robots.txt.",
       "created_by": 4,
       "is_private": true,
@@ -245,10 +207,7 @@
     "pk": "ABCD-0003",
     "model": "perma.link",
     "fields": {
-      "folders": [
-        30,
-        34
-      ],
+      "folder": 34,
       "notes": "Deleted.",
       "created_by": 4,
       "user_deleted": true,
@@ -265,10 +224,7 @@
     "pk": "ABCD-0004",
     "model": "perma.link",
     "fields": {
-      "folders": [
-        30,
-        34
-      ],
+      "folder": 34,
       "notes": "Dark archived - takedown.",
       "created_by": 4,
       "is_private": true,
@@ -285,10 +241,7 @@
     "pk": "ABCD-0005",
     "model": "perma.link",
     "fields": {
-      "folders": [
-        30,
-        34
-      ],
+      "folder": 34,
       "notes": "Unlisted (legacy vested archive).",
       "created_by": 4,
       "is_unlisted": true,
@@ -304,10 +257,7 @@
     "pk": "ABCD-0006",
     "model": "perma.link",
     "fields": {
-      "folders": [
-        30,
-        34
-      ],
+      "folder": 34,
       "notes": "Replaced link.",
       "created_by": 4,
       "submitted_title": "Wikipedia",
@@ -323,10 +273,7 @@
     "pk": "ABCD-0007",
     "model": "perma.link",
     "fields": {
-      "folders": [
-        30,
-        34
-      ],
+      "folder": 34,
       "notes": "Screenshot Only",
       "created_by": 4,
       "submitted_title": "Wikipedia",
@@ -341,10 +288,7 @@
     "pk": "ABCD-0008",
     "model": "perma.link",
     "fields": {
-      "folders": [
-        30,
-        34
-      ],
+      "folder": 34,
       "notes": "Middle Memento plus Screenshot view",
       "created_by": 4,
       "submitted_title": "Wikipedia",
@@ -360,10 +304,7 @@
     "pk": "ABCD-0009",
     "model": "perma.link",
     "fields": {
-      "folders": [
-        30,
-        34
-      ],
+      "folder": 34,
       "notes": "Latest Memento",
       "created_by": 4,
       "submitted_title": "Wikipedia",
@@ -378,9 +319,7 @@
     "pk": "ABCD-0010",
     "model": "perma.link",
     "fields": {
-      "folders": [
-        27
-      ],
+      "folder": 27,
       "notes": "In Progress",
       "created_by": 2,
       "submitted_url": "https://github.com",
@@ -394,9 +333,7 @@
     "pk": "ABCD-0011",
     "model": "perma.link",
     "fields": {
-      "folders": [
-        55
-      ],
+      "folder": 55,
       "notes": "Personal Link for Sponsored User",
       "created_by": 20,
       "submitted_url": "https://github.com",

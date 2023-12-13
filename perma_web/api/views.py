@@ -380,7 +380,7 @@ class AuthenticatedLinkListView(BaseView):
 
         # for /folders/:parent_id/archives, limit to links in folder
         if request.parent:
-            queryset = queryset.filter(folders=request.parent)
+            queryset = queryset.filter(folder=request.parent)
 
         return queryset
 

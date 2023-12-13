@@ -37,6 +37,7 @@ class LinkAuthorizationMixin():
         self.firm_folder = Folder.objects.get(name="Some Case")
 
         self.link = Link.objects.get(pk="3SLN-JHX9")
+        self.regular_user_link = Link.objects.get(pk="JJ3S-2Q5N")
         self.unrelated_link = Link.objects.get(pk="7CF8-SS4G")
         self.capture_view_link = Link.objects.get(pk="ABCD-0007")
         self.private_link_by_user = Link.objects.get(pk="ABCD-0001")
@@ -51,6 +52,7 @@ class LinkAuthorizationMixin():
 
         self.list_url = reverse('api:archives')
         self.link_url = self.get_link_url(self.link)
+        self.regular_user_link_url = self.get_link_url(self.regular_user_link)
         self.unrelated_link_url = self.get_link_url(self.unrelated_link)
         self.capture_view_link_url = self.get_link_url(self.capture_view_link)
         self.in_progress_link_url = self.get_link_url(self.in_progress_link)
@@ -118,9 +120,6 @@ class LinkAuthorizationTestCase(LinkAuthorizationMixin, ApiResourceTestCase):
     def test_should_allow_patch_from_staff(self):
         self.successful_patch(self.unrelated_link_url, user=self.admin_user, data=self.patch_data)
 
-    def test_should_allow_link_creator_to_patch_notes_and_title_and_screenshot(self):
-        self.successful_patch(self.link_url, user=self.link.created_by, data=self.patch_data)
-
     def test_should_allow_member_of_links_org_to_patch_notes_and_title(self):
         user = LinkUser.objects.filter(organizations=self.link.organization).first()
         self.successful_patch(self.link_url, user=user, data=self.patch_data)
@@ -183,9 +182,9 @@ class LinkAuthorizationTestCase(LinkAuthorizationMixin, ApiResourceTestCase):
     ######################
 
     def test_should_allow_link_owner_to_toggle_private(self):
-        user = self.link.created_by
-        self.successful_patch(self.link_url, user=user, data={'is_private': True, 'private_reason': 'user'})
-        self.successful_patch(self.link_url, user=user, data={'is_private': False, 'private_reason': None})
+        user = self.regular_user_link.created_by
+        self.successful_patch(self.regular_user_link_url, user=user, data={'is_private': True, 'private_reason': 'user'})
+        self.successful_patch(self.regular_user_link_url, user=user, data={'is_private': False, 'private_reason': None})
 
     def test_should_allow_member_of_links_org_to_toggle_private(self):
         users_in_org = LinkUser.objects.filter(organizations=self.link.organization)
@@ -232,6 +231,7 @@ class LinkAuthorizationTestCase(LinkAuthorizationMixin, ApiResourceTestCase):
         self.assertIn(obj['guid'], [obj['guid'] for obj in data['objects']])
 
     def rejected_link_move(self, user, link, folder, expected_status_code=401):
+        self.assertFalse(link.folder_id == folder.id)
         folder_url = "{0}/folders/{1}".format(self.url_base, folder.pk)
         archives_url = "{0}/archives".format(folder_url)
         try:
@@ -240,16 +240,15 @@ class LinkAuthorizationTestCase(LinkAuthorizationMixin, ApiResourceTestCase):
         except AssertionError:
             self.rejected_put("{0}/{1}".format(archives_url, link.pk), user=user, expected_status_code=expected_status_code)
 
-            # Make sure it's not listed in the folder
-            obj = self.successful_get("{0}/{1}".format(self.list_url, link.pk), user=link.created_by)
-            data = self.successful_get(archives_url, user=folder.created_by)
-            self.assertNotIn(obj, data['objects'])
+            # Make sure it's not in the folder
+            link.refresh_from_db()
+            self.assertFalse(link.folder_id == folder.id)
 
     def test_should_allow_link_owner_to_move_to_new_folder(self):
         self.successful_link_move(self.org_user, self.link, self.link.organization.shared_folder.children.first())
 
     def test_should_reject_move_to_parent_to_which_user_lacks_access(self):
-        self.rejected_link_move(self.regular_user, self.link, self.org_user.root_folder,
+        self.rejected_link_move(self.org_user, self.link, self.regular_user.root_folder,
                                 expected_status_code=403)
 
     def test_should_reject_move_from_user_lacking_link_owner_access(self):

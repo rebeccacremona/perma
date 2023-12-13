@@ -1074,7 +1074,7 @@ class LinkUser(CustomerModel, AbstractBaseUser, PermissionsMixin):
             unlimited = self.unlimited
 
         # exclude bonus links, sponsored links and links associated with an org
-        personal_links = Link.objects.filter(organization_id=None, folders__sponsored_by=None).exclude(bonus_link=True)
+        personal_links = Link.objects.filter(organization_id=None, folder__sponsored_by=None).exclude(bonus_link=True)
 
         if unlimited:
             # UNLIMITED (paid or sponsored)
@@ -1300,7 +1300,7 @@ class Folder(MPTTModel):
         super(Folder, self).save(*args, **kwargs)
 
         if parent_has_changed:
-            links = Link.objects.filter(folders__in=self.get_descendants(include_self=True))
+            links = Link.objects.filter(folder__in=self.get_descendants(include_self=True))
             bonus_links = links.filter(bonus_link=True)
             # update read-only status
             self.get_descendants(include_self=True).update(read_only=self.parent.read_only)
@@ -1340,9 +1340,6 @@ class Folder(MPTTModel):
 
     def __str__(self):
         return self.name
-
-    def contained_links(self):
-        return Link.objects.filter(folders__in=self.get_descendants(include_self=True))
 
     def display_level(self):
         """
@@ -1399,7 +1396,7 @@ class LinkQuerySet(QuerySet):
         if orgs:
             folder_list.extend(Folder.objects.filter(organization__in=list(orgs)).values_list('id', flat=True))
 
-        return Q(folders__id__in=folder_list)
+        return Q(folder__id__in=folder_list)
 
     def accessible_to(self, user):
         return self.filter(self.user_access_filter(user))
@@ -1474,7 +1471,7 @@ class Link(DeletableModel):
     submitted_description = models.CharField(max_length=300, null=True, blank=True)
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, related_name='created_links', on_delete=models.CASCADE)
     organization = models.ForeignKey(Organization, null=True, blank=True, related_name='links', on_delete=models.CASCADE)
-    folders = models.ManyToManyField(Folder, related_name='links', blank=True)
+    folder = models.ForeignKey(Folder, related_name='links', null=True, blank=True, on_delete=models.DO_NOTHING)
     notes = models.TextField(blank=True)
     default_to_screenshot_view = models.BooleanField(default=False, help_text="User defaults to screenshot view.")
     bonus_link = models.BooleanField(null=True, blank=True)
@@ -1644,14 +1641,15 @@ class Link(DeletableModel):
         if self.is_private and not self.private_reason:
             self.private_reason = 'user'
 
-        super(Link, self).save(*args, **kwargs)
-
-        if not self.folders.count():
+        if not self.folder_id:
             if not initial_folder:
                 if self.created_by and self.created_by.root_folder:
                     initial_folder = self.created_by.root_folder
             if initial_folder:
-                self.folders.add(initial_folder)
+                self.folder = initial_folder
+
+        super(Link, self).save(*args, **kwargs)
+
 
     def __str__(self):
         return self.guid
@@ -1684,11 +1682,8 @@ class Link(DeletableModel):
             Move this link to the given folder for the given user.
             If folder is None, link is moved to root (no folder).
         """
-        # remove this link from any folders it's in for this user
-        self.folders.remove(*self.folders.accessible_to(user))
-        # add it back to the given folder
         if folder:
-            self.folders.add(folder)
+            self.folder = folder
             if not folder.organization:
                 self.organization = None
             else:
@@ -1697,7 +1692,7 @@ class Link(DeletableModel):
                 self.bonus_link = False
                 user.bonus_links = user.bonus_links + 1
 
-            self.save(update_fields=['organization', 'bonus_link'])
+            self.save(update_fields=['folder', 'organization', 'bonus_link'])
             user.save(update_fields=['bonus_links'])
 
     def guid_as_path(self):
