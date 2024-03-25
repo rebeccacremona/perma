@@ -1685,6 +1685,19 @@ class Link(DeletableModel):
         parsed = urlparse(self.warc_presigned_url())
         return f'{parsed.path}?{parsed.query}'.lstrip('/')
 
+    def wacz_storage_file(self):
+        return f'waczs/{self.guid}.wacz'
+
+    def wacz_presigned_url(self):
+        return default_storage.url(self.wacz_storage_file(), expire=settings.WARC_PRESIGNED_URL_EXPIRES, parameters={
+                'ResponseContentType': 'application/wacz',
+                'ResponseContentEncoding': ''
+        })
+
+    def wacz_presigned_url_relative(self):
+        parsed = urlparse(self.wacz_presigned_url())
+        return f'{parsed.path}?{parsed.query}'.lstrip('/')
+
     def delete_related_captures(self):
         Capture.objects.filter(link_id=self.pk).delete()
 
